@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_delivery_post_nl_carrier_form" model="ir.ui.view">
+        <field name="model">delivery.carrier</field>
+        <field name="inherit_id" ref="delivery.view_delivery_carrier_form"/>
+        <field name="arch" type="xml">
+             <xpath expr="//page[@name='destination']" position='before'>
+                <page string="Configuration" name="Postnl_configuration" attrs="{'invisible': [('delivery_type', '!=', 'post_nl')]}">
+                    <group>
+                        <group>
+                            <field name="postnl_customer_code" attrs="{'required': [('delivery_type', '=', 'post_nl')]}"/>
+                            <field name="postnl_customer_number" attrs="{'required': [('delivery_type', '=', 'post_nl')]}"/>
+                            <field name="postnl_gloable_license_nr" attrs="{'required': [('delivery_type', '=', 'post_nl')]}"/>
+                        </group>
+                        <group>
+                            <field name="postnl_default_product_code" attrs="{'required': [('delivery_type', '=', 'post_nl')]}"/>
+                            <field name="api_key" attrs="{'required': [('delivery_type', '=', 'post_nl')]}"  password="True"/>
+
+                        </group>
+
+                    </group>
+                    <group>
+                        <group string="Pricing">
+                             <field name="postnl_base_shipping_cost"/>
+                        </group>
+                    </group>
+                </page>
+             </xpath>
+            
+        </field>
+    </record>
+</odoo>

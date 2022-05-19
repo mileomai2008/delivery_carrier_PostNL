@@ -3,7 +3,6 @@
 from odoo import fields,  models, api, _
 from .postNL_requests import PostNLRequets
 from odoo.exceptions import UserError
-from odoo.exceptions import UserError
 import json
 import time
 import logging
